@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wifi Manager</string>
+    <string name="fullname">Алутін Михайло Сергійович</string>
+    <string name="devices">Пристрої</string>
+    <string name="device">Пристрій</string>
+    <string name="cancel">Скасувати</string>
+    <string name="camera">Камера</string>
+    <string name="action">Дія</string>
+    <string name="user_count">Кількість користувачів</string>
+    <string name="language_button">Мова</string>
+    <string name="connect">Підключитися</string>
+    <string name="day_mode_button">Денний режим</string>
+    <string name="day_theme">Свiтлий</string>
+    <string name="db_button">База даних</string>
+    <string name="deconnect">Відключитися</string>
+    <string name="disconnect">Відключитися</string>
+    <string name="in_work" translatable="false">в розробці</string>
+    <string name="info_author_button" translatable="false">Про автора</string>
+    <string name="net_added" translatable="false">Додано мережу</string>
+    <string name="network_create_param_button" translatable="false">Відображення мереж</string>
+    <string name="night_mode_button">Нічний режим</string>
+    <string name="night_theme">Темний</string>
+    <string name="pass_len_error" translatable="false">Пароль повинен бути мінімум з 8 символів!</string>
+    <string name="product_info_button" translatable="false">Про програму</string>
+    <string name="profession" translatable="false">Дизайнер</string>
+    <string name="rq_read_button">Прочитати QR</string>
+    <string name="select_lang" translatable="false">Виберіть мову</string>
+    <string name="select_param" translatable="false">Виберіть параметр</string>
+    <string name="select_theme" translatable="false">Виберіть тему</string>
+    <string name="setting_button" translatable="false">Налаштування</string>
+    <string name="share">Поділитися</string>
+    <string name="show_pass" translatable="false">Показати пароль</string>
+    <string name="cam_info" translatable="false">Камера потрібна для сканування Qr-кодів!</string>
+    <string name="ap_on">"Включено "</string>
+    <string name="ap_off">Виключено</string>
+    <string name="ssid_empty_error" translatable="false">Ім\'я мережі не може бути порожнім!</string>
+    <string name="statistic_button">Статистика</string>
+    <string name="status" translatable="false">заходите до мене на гітхаб і надсилайте мені більше листів на пошту
+    </string>
+    <string name="style_button">Стилі</string>
+    <string name="time_table_button">Розклад</string>
+    <string name="title_activity_login">Увійти</string>
+    <string name="wifi_spot_button" translatable="false">Точка доступу</string>
+    <string name="with_pass">Підключитися з паролем</string>
+    <string name="prompt_password">Пароль (опцінально)</string>
+    <string name="showPassword" translatable="false">Показати пароль</string>
+    <string name="shareQR" translatable="false">Поділитися з QR</string>
+</resources>

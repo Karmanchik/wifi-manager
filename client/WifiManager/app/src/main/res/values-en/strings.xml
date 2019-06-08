@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wifi Manager</string>
+    <string name="fullname">Alutin Mikhail Sergeevich</string>
+    <string name="devices">Devices</string>
+    <string name="device">"Device: "</string>
+    <string name="cancel">Cancel</string>
+    <string name="camera">Camera</string>
+    <string name="action">Action</string>
+    <string name="user_count">User count</string>
+    <string name="language_button">Language</string>
+    <string name="connect">Connect</string>
+    <string name="day_mode_button" translatable="false">Day Mode</string>
+    <string name="day_theme" translatable="false">Light</string>
+    <string name="db_button">Database</string>
+    <string name="deconnect">Disconnect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="in_work" translatable="false">in work</string>
+    <string name="info_author_button" translatable="false">About the author</string>
+    <string name="net_added" translatable="false">Network added</string>
+    <string name="network_create_param_button">Network mapping</string>
+    <string name="night_mode_button">Night Mode</string>
+    <string name="night_theme">Dark</string>
+    <string name="pass_len_error">Password must be at least 8 characters!</string>
+    <string name="product_info_button" translatable="false">About</string>
+    <string name="profession" translatable="false">Designer</string>
+    <string name="rq_read_button" translatable="false">Read QR</string>
+    <string name="select_param" translatable="false">Select option</string>
+    <string name="select_lang" translatable="false">Choose language</string>
+    <string name="select_theme" translatable="false">Choose a theme</string>
+    <string name="setting_button" translatable="false">Settings</string>
+    <string name="share">Share</string>
+    <string name="show_pass" translatable="false">Show password</string>
+    <string name="cam_info" translatable="false">The camera is needed to scan Qr-codes!</string>
+    <string name="ap_on">" Enabled"</string>
+    <string name="ap_off">Turned off</string>
+    <string name="ssid_empty_error">Network name can not be empty!</string>
+    <string name="statistic_button" translatable="false">Statistics</string>
+    <string name="status">" come to my github and send me more emails"</string>
+    <string name="style_button" translatable="false">Styles</string>
+    <string name="time_table_button">Schedule</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="wifi_spot_button" translatable="false">Network Point</string>
+    <string name="with_pass">Connect with password</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="showPassword" translatable="false">Show password</string>
+    <string name="shareQR" translatable="false">Share with QR</string>
+</resources>

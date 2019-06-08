@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Wifi Manager</string>
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="company_name" translatable="false">alt Lab</string>
+    <string name="prompt_password">Password (optional)</string>
+
+    <!-- Ресурсы пунктов меню Action bar'a -->
+    <string name="night_mode_button">Ночной режим</string>
+    <string name="day_mode_button">Дневной режим</string>
+    <string name="setting_button">Настройки</string>
+    <string name="rq_read_button">Считать QR</string>
+    <string name="info_author_button">Об авторе</string>
+    <string name="statistic_button">Статистика</string>
+    <string name="wifi_spot_button">Точка доступа</string>
+
+    <!-- Ресурсы пунктов меню настроек -->
+    <string name="style_button">Стили</string>
+    <string name="language_button">Язык</string>
+    <string name="db_button">База данных</string>
+    <string name="network_create_param_button">Отображение сетей</string>
+    <string name="time_table_button">Расписание</string>
+    <string name="product_info_button">О программе</string>
+    <string name="shareQR">Share with QR</string>
+    <string name="showPassword">Show password</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connectWithDB" translatable="false">Connect with DB</string>
+    <string name="default_lang" translatable="false">default</string>
+    <string name="ap_on">Включено</string>
+    <string name="ap_off">Выключено</string>
+    <string name="pass_len_error">Пароль должен быть минимум из 8 символов!</string>
+    <string name="ssid_empty_error">Имя сети не может быть пустым!</string>
+    <string name="ip" translatable="false">IpAddr:</string>
+    <string name="device">Device:</string>
+    <string name="hw_addr" translatable="false">HWAddr:</string>
+    <string name="is_reachable" translatable="false">isReachable:</string>
+    <string name="devices">Devices</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="connect">Подключиться</string>
+    <string name="share">Поделиться</string>
+    <string name="show_pass">Показать пароль</string>
+    <string name="deconnect">Отключиться</string>
+    <string name="action">Action</string>
+    <string name="in_work">в разработке</string>
+    <string name="lvl" translatable="false">Lvl:</string>
+    <string name="fullname">Alutin Mikhail Sergeevich</string>
+    <string name="profession">Дизайнер</string>
+    <string name="status">заходите ко мне на гитхаб и присылайте мне больше писем на почту</string>
+    <string name="mail" translatable="false">deusmengnus@mail.ru</string>
+    <string name="vk_addr" translatable="false">https://vk.com/mengnusdeus</string>
+    <string name="cam_info">Камера нужна для сканирования Qr-кодов!</string>
+    <string name="net_added">Сеть добавлена</string>
+    <string name="select_lang">Выберите язык</string>
+    <string name="user_count">User count</string>
+    <string name="signal_level" translatable="false">Level</string>
+    <string name="select_param">Выберите параметр</string>
+    <string name="day_theme">Светлый</string>
+    <string name="night_theme">Темный</string>
+    <string name="select_theme">Выберите тему</string>
+    <string name="camera">Camera</string>
+    <string name="with_pass">Подключиться с паролем</string>
+</resources>

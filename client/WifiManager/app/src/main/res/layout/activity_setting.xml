@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settingActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        style="@style/Toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:id="@+id/nt"
+        android:background="@android:color/holo_blue_light">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:onClick="selectTheme"
+                    style="@style/settingItem"
+                    android:text="@string/style_button"/>
+
+            <View style="@style/setting_divider"/>
+
+            <TextView
+                    style="@style/settingItem"
+                    android:onClick="selectLanguage"
+                    android:text="@string/language_button"/>
+
+            <View style="@style/setting_divider"/>
+
+            <TextView
+                    android:onClick="dbClick"
+                    style="@style/settingItem"
+                    android:text="@string/db_button"/>
+
+            <View style="@style/setting_divider"/>
+
+            <TextView
+                    android:onClick="selectParam"
+                    style="@style/settingItem"
+                    android:text="@string/network_create_param_button"/>
+
+            <View style="@style/setting_divider"/>
+
+            <TextView
+                    android:onClick="aboutClick"
+                    style="@style/settingItem"
+                    android:text="@string/product_info_button"/>
+
+            <View style="@style/setting_divider"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

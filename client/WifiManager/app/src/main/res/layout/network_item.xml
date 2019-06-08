@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp">
+
+        <ImageView
+                android:id="@+id/power_status_ImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/wifi_4_open"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/ssid_network_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="wcw"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp" android:singleLine="true"/>
+
+            <TextView
+                    android:id="@+id/param_network_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="Устройств в сети: 1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="18sp" android:singleLine="true"/>
+        </LinearLayout>
+
+        <ImageView
+                android:id="@+id/isConnect_ImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/empty"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

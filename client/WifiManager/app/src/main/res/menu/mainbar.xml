@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemNightMode"
+        android:title="@string/night_mode_button" />
+    <item
+        android:id="@+id/itemQRread"
+        android:title="@string/rq_read_button" />
+    <item
+        android:id="@+id/itemWifiSpot"
+        android:title="@string/wifi_spot_button" />
+    <item
+        android:id="@+id/itemSetting"
+        android:title="@string/setting_button" />
+    <item
+        android:id="@+id/itemAvtorInfo"
+        android:title="@string/info_author_button" />
+</menu>
