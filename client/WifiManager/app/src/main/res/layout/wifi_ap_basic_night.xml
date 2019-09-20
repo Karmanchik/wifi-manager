@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.AccessPointActivity"
-        android:background="@android:color/holo_blue_dark"
-        android:id="@+id/nt_l_ap">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:background="@color/background_dark">
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.29000002">
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="189dp">
+
         <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" tools:srcCompat="@drawable/wifi_4_open"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@drawable/wifi_4_open"
                 android:id="@+id/status_img"/>
+
         <TextView
-                android:text="TextView"
+                android:text="Статус"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/stasus_access_point" android:textSize="24sp"
-                android:textColor="@color/cardview_light_background" android:gravity="center"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/stasus_access_point"
+                android:textSize="24sp"
+                android:textColor="#fff"
+                android:gravity="center"/>
     </LinearLayout>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -30,36 +34,47 @@
             android:gravity="bottom"
             android:layout_margin="15dp"
             android:id="@+id/linearLayout">
-        <TextView
-                android:text="Название сети"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
 
-                android:id="@+id/ssid_access_point"/>
         <TextView
-                android:text="Пароль"
+                android:text="@string/ap_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="#fff"/>
+
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/password_access_point"/>
+                android:id="@+id/ssid_access_point"
+                android:textColor="#fff"/>
+
+        <TextView
+                android:text="@string/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"/>
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/password_access_point"
+                android:textColor="#fff"/>
+
         <Button
-                android:text="Вкл/Выкл"
+                android:text="@string/on_off"
                 android:onClick="powerMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
         <Button
-                android:text="Поделиться"
+                android:text="@string/Share"
                 android:onClick="share"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

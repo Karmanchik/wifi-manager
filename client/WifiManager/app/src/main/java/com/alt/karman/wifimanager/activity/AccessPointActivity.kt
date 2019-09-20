@@ -1,8 +1,6 @@
 package com.alt.karman.wifimanager.activity
 
-import android.net.wifi.WifiConfiguration
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -11,10 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.alt.karman.wifimanager.R
 import com.alt.karman.wifimanager.SettingApp
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatWriter
-import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.alt.karman.wifimanager.WifiApManager
+import com.alt.karman.wifimanager.generateQR
 import java.lang.StringBuilder
 
 
@@ -30,10 +26,11 @@ class AccessPointActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wifi_spot)
 
-            if (SettingApp(this).style.get() == "night")
-                findViewById<ConstraintLayout>(R.id.nt_l_ap).setBackgroundResource(R.color.background_dark)
+        if (SettingApp(this).nightMode.get())
+            setContentView(R.layout.activity_wifi_spot_night)
+        else
+            setContentView(R.layout.activity_wifi_spot)
 
         statusImg = findViewById(R.id.status_img)
         statusText = findViewById(R.id.stasus_access_point)
@@ -99,25 +96,15 @@ class AccessPointActivity : AppCompatActivity() {
             }
     }
 
-    fun share(view: View) {
+    fun share(v: View) {
         val SSID = ssidView.text.toString()
         val securityType = "wpa"
         val password = password.text.toString()
-        val textQR = "WIFI:S:$SSID;T:$securityType;P:$password;H:false;"
 
-        val multiFormatWriter = MultiFormatWriter()
-        try {
-            val bitMatrix = multiFormatWriter.encode(textQR, BarcodeFormat.QR_CODE, 500, 500)
-            val barcodeEncoder = BarcodeEncoder()
-            val bitmap = barcodeEncoder.createBitmap(bitMatrix)
-
-            val builder = AlertDialog.Builder(this)
-            val imageView = ImageView(this)
-            imageView.setImageBitmap(bitmap)
-            builder.setView(imageView)
-            builder.show()
-        } catch (e: Exception) {
-        }
-
+        val builder = AlertDialog.Builder(this)
+        val imageView = ImageView(this)
+        imageView.setImageBitmap(generateQR(SSID, securityType, password))
+        builder.setView(imageView)
+        builder.show()
     }
 }

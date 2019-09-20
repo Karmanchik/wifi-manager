@@ -26,6 +26,10 @@
         <item name="android:textColor">#fff</item>
     </style>
 
+    <style name="day_settingItem" parent="settingItem">
+        <item name="android:textColor">#7E7777</item>
+    </style>
+
     <style name="imgPower">
         <item name="android:layout_width">64dp</item>
         <item name="android:layout_height">64dp</item>

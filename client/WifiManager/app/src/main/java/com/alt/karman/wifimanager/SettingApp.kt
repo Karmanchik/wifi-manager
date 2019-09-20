@@ -15,10 +15,10 @@ class SettingApp(context: Context) {
     val net: Pref<String>
     val wifiOn: Pref<String>
     val hotspot: Pref<Boolean>
-    val style: Pref<String>
     val dbDate: Pref<String>
     val nightMode: Pref<Boolean>
     val dbServer: Pref<StringSet>
+    val showStartActivity: Pref<Boolean>
 
     init {
         pref = rxkPrefs(context, fileName)
@@ -26,10 +26,23 @@ class SettingApp(context: Context) {
         net = pref.string("net", "bsid")
         wifiOn = pref.string("wifiOn", "null")
         hotspot = pref.boolean("hotspot")
-        style = pref.string("style", "blue")
         dbDate = pref.string("dbDate", "null")
         nightMode = pref.boolean("nightMode")
         dbServer = pref.stringSet("db")
+        showStartActivity = pref.boolean("showStartActivity", true)
+    }
+
+    fun reset() {
+        language.delete()
+        net.delete()
+        wifiOn.delete()
+        hotspot.delete()
+        dbDate.delete()
+        nightMode.delete()
+        dbServer.delete()
+        showStartActivity.delete()
     }
 
 }
+
+fun Pref<Boolean>.antonim() = set(!get())

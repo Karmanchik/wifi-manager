@@ -14,25 +14,24 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
-        var cover = R.mipmap.profile_cover
         if (SettingApp(this).nightMode.get()) {
             findViewById<ConstraintLayout>(R.id.aboutLayout)
                     .setBackgroundResource(R.color.background_dark)
-            cover = R.drawable.cover
         }
 
         val view = AboutBuilder.with(this)
                 .setPhoto(R.drawable.ava)
-                .setCover(cover)
+                .setCover(R.mipmap.profile_cover)
                 .setName(R.string.fullname)
                 .setSubTitle(R.string.profession)
-                .setBrief(R.string.status)
                 .setAppIcon(R.drawable.icon)
                 .setAppName(R.string.app_name)
-                .addEmailLink(R.string.mail)
+                .addEmailLink("andreysxkormachenko@gmail.com")
                 .addWebsiteLink(R.string.vk_addr)
+                .addFacebookLink("karmancheg")
+                .addInstagramLink("no_camel_style")
                 .addFiveStarsAction()
-                .addGitHubLink("deusmengnus")
+                .addGitHubLink("Karmanchik")
                 .setVersionNameAsAppSubTitle()
                 .addShareAction(R.string.app_name)
                 .setWrapScrollView(true)

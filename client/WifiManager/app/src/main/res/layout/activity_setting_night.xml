@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.SettingActivity">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.SettingActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
-        style="@style/Toolbar"/>
+            android:id="@+id/toolbar2"
+            style="@style/Toolbar"
+            android:background="@color/background_dark"/>
 
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/nt"
+            android:background="@color/background_dark"
             android:layout_marginTop="?actionBarSize">
 
         <LinearLayout
@@ -22,16 +24,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+            <View
+                    style="@style/setting_divider"
+                    android:layout_height="3dp"/>
+
             <Switch
                     android:id="@+id/night_mode"
                     android:onClick="nightModeClick"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/night_mode_button"/>
 
             <View style="@style/setting_divider"/>
 
             <TextView
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:onClick="selectLanguage"
                     android:text="@string/language_button"/>
 
@@ -39,21 +45,21 @@
 
             <TextView
                     android:onClick="dbClick"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/db_button"/>
 
             <View style="@style/setting_divider"/>
 
             <TextView
                     android:onClick="resetClick"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/reset_setting"/>
 
             <View style="@style/setting_divider"/>
 
             <TextView
                     android:onClick="selectParam"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/network_create_param_button"/>
 
             <View style="@style/setting_divider"/>
@@ -61,14 +67,14 @@
             <Switch
                     android:id="@+id/show_start_activity"
                     android:onClick="showStartActivityClick"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/show_start_activity"/>
 
             <View style="@style/setting_divider"/>
 
             <TextView
                     android:onClick="aboutClick"
-                    style="@style/day_settingItem"
+                    style="@style/settingItem"
                     android:text="@string/product_info_button"/>
 
             <View style="@style/setting_divider"/>

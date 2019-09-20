@@ -3,7 +3,6 @@ package com.alt.karman.wifimanager.activity
 import android.Manifest
 import android.content.Intent
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -11,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ScrollView
+import android.widget.Switch
 import android.widget.Toast
 import com.alt.karman.wifimanager.*
 import com.github.florent37.runtimepermission.kotlin.askPermission
@@ -26,10 +26,18 @@ class SettingActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+
+        val setting = SettingApp(this)
+        if (setting.nightMode.get())
+            setContentView(R.layout.activity_setting_night)
+        else
+            setContentView(R.layout.activity_setting)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar2)
         setSupportActionBar(toolbar)
+
+        findViewById<Switch>(R.id.night_mode).isChecked = setting.nightMode.get()
+        findViewById<Switch>(R.id.show_start_activity).isChecked = setting.showStartActivity.get()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -46,14 +54,6 @@ class SettingActivity: AppCompatActivity() {
             R.id.itemAvtorInfo -> MyToolbar(this).onClickAuthorInfoItem()
         }
         return true
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (SettingApp(this).style.get() != "night") return
-
-        findViewById<ScrollView>(R.id.nt).setBackgroundResource(R.color.background_dark)
-        findViewById<Toolbar>(R.id.toolbar2).setBackgroundResource(R.color.background_dark)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -79,50 +79,36 @@ class SettingActivity: AppCompatActivity() {
     }
 
     fun dbClick(view: View) {
-        try {
-            val service = getDefaultRetrofit().create(Api::class.java)
-            val call = service.toClient()
+        val service = getDefaultRetrofit().create(Api::class.java)
+        val call = service.toClient()
 
-            call.enqueue(object : Callback<Array<NetworkPOJO>> {
-                override fun onResponse(call: Call<Array<NetworkPOJO>>, response: Response<Array<NetworkPOJO>>) {
-                    if (response.isSuccessful) {
-                        val resultPOJO = response.body()!!
-                        val setting = SettingApp(this@SettingActivity)
-                        val list = mutableListOf<String>()
-                        resultPOJO.forEach {
-                            list.add(Gson().toJson(it))
-                        }
-                        setting.dbServer.set(list.toMutableSet())
+        call.enqueue(object : Callback<Array<NetworkPOJO>> {
+            override fun onResponse(call: Call<Array<NetworkPOJO>>, response: Response<Array<NetworkPOJO>>) {
+                if (response.isSuccessful) {
+                    val resultPOJO = response.body()!!
+                    val setting = SettingApp(this@SettingActivity)
+                    val list = mutableListOf<String>()
+                    resultPOJO.forEach {
+                        list.add(Gson().toJson(it))
                     }
+                    setting.dbServer.set(list.toMutableSet())
+                    Toast.makeText(this@SettingActivity, "OK", Toast.LENGTH_SHORT).show()
                 }
+            }
+            override fun onFailure(call: Call<Array<NetworkPOJO>>, t: Throwable) {}
+        })
 
-                override fun onFailure(call: Call<Array<NetworkPOJO>>, t: Throwable) {
-                    Toast.makeText(this@SettingActivity, "download failed", Toast.LENGTH_SHORT).show()
-                }
-            })
-            Thread(Runnable {
-                try {
-                    val tmp = MyDbWorker.getAll(this)
-                    tmp.forEach {
-                        val newCall = service.toServer(it.ssid, it.password, it.bssid)
-                        newCall.enqueue(object : Callback<Result> {
-                            override fun onResponse(call: Call<Result>, response: Response<Result>) {
-                                Toast.makeText(this@SettingActivity, "load complete", Toast.LENGTH_SHORT).show()
-                            }
-
-                            override fun onFailure(call: Call<Result>, t: Throwable) {
-                                Toast.makeText(this@SettingActivity, "Error", Toast.LENGTH_SHORT).show()
-                            }
-                        })
-                        Thread.sleep(10)
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(this@SettingActivity, e.message.toString(), Toast.LENGTH_LONG).show()
-                }
-            }).start()
-        } catch (e: Exception) {
-            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
-        }
+        Thread(Runnable {
+            val tmp = MyDbWorker.getAll(this)
+            tmp.forEach {
+                val newCall = service.toServer(it.ssid, it.password, it.bssid)
+                newCall.enqueue(object : Callback<Result>{
+                    override fun onResponse(call: Call<Result>, response: Response<Result>) {}
+                    override fun onFailure(call: Call<Result>, t: Throwable) {}
+                })
+                Thread.sleep(10)
+            }
+        }).start()
     }
 
     fun aboutClick(v: View) = startActivity(AboutActivity::class.java)
@@ -173,22 +159,9 @@ class SettingActivity: AppCompatActivity() {
             .create().show()
     }
 
-    fun selectTheme(v: View) {
-        val themes = arrayOf(
-            getString(R.string.day_theme),
-            getString(R.string.night_theme)
-        )
-        val setting = SettingApp(this)
-        AlertDialog.Builder(this)
-            .setTitle(getString(R.string.select_theme))
-            .setItems(themes) { dialog, item ->
-                dialog.dismiss()
-                when (item) {
-                    0 -> setting.style.set("blue")
-                    1 -> setting.style.set("night")
-                }
-            }
-            .create().show()
+    fun nightModeClick(v: View) {
+        SettingApp(this).nightMode.antonim()
+        recreate()
     }
 
     private fun openCamera() {
@@ -208,4 +181,13 @@ class SettingActivity: AppCompatActivity() {
                 e.goToSettings()
         }
     }
+
+    fun showStartActivityClick(v: View) = SettingApp(this).showStartActivity.antonim()
+
+    fun resetClick(v: View) {
+        SettingApp(this).reset()
+        setLocale(this, SettingApp(this).language.get())
+        recreate()
+    }
+
 }

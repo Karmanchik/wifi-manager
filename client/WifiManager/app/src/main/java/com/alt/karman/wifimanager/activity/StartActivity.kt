@@ -3,7 +3,6 @@ package com.alt.karman.wifimanager.activity
 import android.Manifest
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -35,13 +34,21 @@ class StartActivity: AppCompatActivity() {
             }
             override fun onAnimationRepeat(animation: Animation) {}
         })
-        prodText.startAnimation(animProd)
+        if (SettingApp(this).showStartActivity.get())
+            askPerm()
+        else
+            prodText.startAnimation(animProd)
     }
 
     override fun onStart() {
         super.onStart()
-        if (SettingApp(this).style.get() == "night")
+        if (SettingApp(this).nightMode.get())
             findViewById<ConstraintLayout>(R.id.nt_l_StartActivity).setBackgroundResource(R.color.background_dark)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        finish()
     }
 
     private fun askPerm() {

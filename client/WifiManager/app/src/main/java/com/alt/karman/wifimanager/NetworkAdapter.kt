@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.*
 import com.isupatches.wisefy.WiseFy
 import android.widget.Toast
+import com.alt.karman.wifimanager.activity.NetworkPOJO
+import com.google.gson.Gson
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.journeyapps.barcodescanner.BarcodeEncoder
@@ -49,7 +51,6 @@ class NetworkAdapter(context: Context, var layout: Int, var networks: Array<Scan
                     try {
                         wifi.connectToNetwork(network.SSID, 1600)
                         connectWIFI(wm, network.SSID, userInput.text.toString())
-                        MyDbWorker.addNetwork(context, network.SSID, userInput.text.toString())
                     } catch (e: Exception) { }
                 }
                 .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.cancel() }
@@ -113,7 +114,7 @@ class NetworkAdapter(context: Context, var layout: Int, var networks: Array<Scan
         view.findViewById<TextView>(R.id.param_network_TextView).text = when (bonusParam) {
             "BSSID" -> network.BSSID
             "capabilities" -> network.capabilities
-            "level" -> context.getString(R.string.lvl)+network.level
+            "level" -> context.getString(R.string.level)+network.level
             else -> context.getString(R.string.in_work)
         }
 

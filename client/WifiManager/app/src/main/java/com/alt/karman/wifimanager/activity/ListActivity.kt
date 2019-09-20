@@ -77,7 +77,7 @@ class ListActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (SettingApp(this).style.get() != "night") return
+        if (!SettingApp(this).nightMode.get()) return
             findViewById<Toolbar>(R.id.toolbar).setBackgroundResource(R.color.background_dark)
             findViewById<ConstraintLayout>(R.id.nt_ol).setBackgroundResource(R.color.background_dark)
     }
